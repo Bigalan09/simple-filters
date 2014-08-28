@@ -72,6 +72,7 @@
                                         }
                                     });
                                 });
+                                $.fn.filter.updateSelect($options, $table.find("tbody tr:visible"), $col);
                                 $table.trigger("aftertablefilter", {});
                             }, 1);
                         }, 1);
@@ -81,5 +82,56 @@
             }
         });
     };
+    $.fn.filter.updateSelect = function (options, rows, col) {
+        if (options.external) {
+            $.each(options.external, function(key, val) {
+                $previousSelect = $('#filter-' + key).find(':selected').val();
+                if (key != col) {
+                    $select = $('#filter-' + key);
+                    var $filter = new Array();
+                    
+	                rows.each(function () {
+	                    var $key = $(this).find('td:eq(' + val.column + ')').text();
+	                    if (!($key in $filter))
+	                        $filter[$key] = $key;
+	                });
+                    $select.empty();                    
+                    for (var i in $filter) {
+	                    $select.append("<option>" + i + "</option>");
+	                }
+
+                    $opt = $select.find('option');
+	                switch (val.type) {
+	                    case "date":
+	                        $opt.sort(function (a, b) {
+	                            return moment(b.text).toDate() - moment(a.text).toDate();
+	                        });
+	                        break;
+	                    case "numeric":
+	                        $opt.sort(function (a, b) {
+	                            if (Number(a.text) > Number(b.text)) return 1;
+	                            else if (Number(a.text) < Number(b.text)) return -1;
+	                            else return 0;
+	                        });
+	                        break;
+	                    case "string":
+	                        $opt.sort(function (a, b) {
+	                            if (a.text > b.text) return 1;
+	                            else if (a.text < b.text) return -1;
+	                            else return 0;
+	                        });
+	                        break;
+	                }
+
+	                $select = $select.empty().append($opt);
+	                $select.prepend("<option>---</option>");
+                    if ($previousSelect === "---")
+                        $select.find('option:first-child').attr("selected", "selected");
+                    else
+                        $select.val($previousSelect);
+                }
+            });
+        }
+    }
     $.fn.simpleFilters.options = {};
 })(jQuery);
