@@ -1,0 +1,34 @@
+{
+    "name": "simple-folters",
+    "title": "jQuery Simple HTML Table Filters",
+    "description": "jQuery plugin for adding filters to HTML tables.",
+    "keywords": [
+        "filters",
+        "table"
+    ],
+    "version": "0.0.1",
+    "author": {
+        "name": "Alan Gardner and other contributors",
+        "url": "https://github.com/Bigalan09/simple-filters/AUTHORS.txt"
+    },
+    "maintainers": [
+        {
+            "name": "Corey Frang",
+            "email": "gnarf37@gmail.com",
+            "url": "http://gnarf.net"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "GPLv2",
+            "url": "https://github.com/Bigalan09/simple-filters/blob/master/LICENSE"
+        }
+    ],
+    "bugs": "https://github.com/Bigalan09/simple-filters/issues",
+    "homepage": "https://github.com/Bigalan09/simple-filters",
+    "docs": "https://github.com/Bigalan09/simple-filters",
+    "download": "https://github.com/Bigalan09/simple-filters",
+    "dependencies": {
+        "jquery": ">=1.8"
+    }
+}
