@@ -1,7 +1,7 @@
 {
     "name": "simple-filters",
-    "title": "jQuery Simple HTML Table Filters",
-    "description": "jQuery plugin for adding filters to HTML tables.",
+    "title": "Simple Table Filters",
+    "description": "jQuery plugin for adding filters to HTML tables.  Creates select tags with the filtering options of the table.",
     "keywords": [
         "filters",
         "table"
