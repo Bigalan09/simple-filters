@@ -6,9 +6,9 @@
         "filters",
         "table"
     ],
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": {
-        "name": "Alan Gardner and other contributors",
+        "name": "Alan Gardner",
         "url": "https://github.com/Bigalan09/simple-filters/AUTHORS.txt"
     },
     "maintainers": [
